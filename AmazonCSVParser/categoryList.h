@@ -17,15 +17,15 @@ private:
         Node(const string& cat) : category(cat), pNext(nullptr) {}
     };
 
-    Node* head;
+    Node* pHead;
 
 public:
-    CategoryList() : head(nullptr) {}
+    CategoryList() : pHead(nullptr) {}
 
     // add a product into a category
     void addProduct(const string& category, const Product& product)
     {
-        Node* pCur = head;
+        Node* pCur = pHead;
         Node* pPrev = nullptr;
 
         // find category in the list
@@ -46,7 +46,7 @@ public:
 
         if (pPrev == nullptr) // insert at head if the only category
         {
-            head = newNode;
+            pHead = newNode;
         }
         else
         {
@@ -57,7 +57,7 @@ public:
     // lists all uniq id and product name for each product in a category
     void findProducts(const string& category)
     {
-        Node* pCur = head;
+        Node* pCur = pHead;
 
         // find the category within the list of categories
         while (pCur != nullptr)
@@ -83,7 +83,7 @@ public:
     // Prints all categories and their products
     void printCategories() const
     {
-        Node* pCur = head;
+        Node* pCur = pHead;
         while (pCur != nullptr)
         {
             cout << "Category: " << pCur->category << ", Products: " << pCur->products.size() << endl;
@@ -94,7 +94,7 @@ public:
     // destructor
     ~CategoryList()
     {
-        Node* pCur = head;
+        Node* pCur = pHead;
         while (pCur != nullptr)
         {
             Node* temp = pCur;
